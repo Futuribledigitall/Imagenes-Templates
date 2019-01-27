@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            margin-top: 0px;
+            width: 100%;
+            max-width: 1100px;
+            font: 14px 'Open Sans', sans-serif;
+        }
+
+
+        /*----ESTILOS TABS-----*/
+
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .main {
+            margin: 20px auto;
+            min-width: 320px;
+            max-width: 1100px;
+        }
+
+        .content {
+            background: #f9f9f9;
+            color: #373737;
+        }
+
+        .content>div {
+            display: none;
+            padding: 20px;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            width: 24%;
+            font-size: 16px;
+            background-color: #ededed;
+            border-radius: 0 10px;
+        }
+
+        label:hover {
+            color: #cc0000;
+            cursor: pointer;
+        }
+
+        input:checked+label {
+            background: #f9f9f9;
+            color: #cc0000;
+        }
+
+
+        #tab1:checked~.content #content1,
+        #tab2:checked~.content #content2,
+        #tab3:checked~.content #content3,
+        #tab4:checked~.content #content4 {
+            display: block;
+        }
+
+        /*----ESTILOS GENERALES-----*/
+
+
+
+        .seccion {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: box;
+            display: flex;
+            -ms-flex-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            -webkit-flex-basis: 50%;
+            flex-basis: 50%;
+            -ms-flex: 50%;
+            align-items: center;
+            margin: -3px;
+            overflow: hidden;
+
+        }
+
+        .contenido {
+            display: block;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+
+        .galeria {
+            margin: 0 auto;
+        }
+
+        .galeria img {
+            width: 100%;
+            padding: 20px 0;
+        }
+
+
+        .contenido img {
+            width: 100%;
+        }
+
+        .contenido img {
+            padding: 10px 0;
+        }
+
+        .contenido ul {
+            list-style-position: inside;
+            padding: 10px;
+        }
+
+        .img_spec {
+            width: 100%;
+            max-width: 82px;
+        }
+
+
+        .text_spec {
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        .imagen-seccion img {
+            width: 100%;
+            overflow: hidden;
+            -webkit-transition: width 0.5s;
+            transition: width 0.5s;
+        }
+
+        .imagen-seccion img:hover {
+            width: 105%;
+        }
+
+        .imagen-seccion {
+            -webkit-flex-basis: 45%;
+            flex-basis: auto;
+            width: 45%;
+            display: inline-block;
+            margin: -6px 0;
+            overflow: hidden;
+        }
+
+        .texto-seccion {
+            -webkit-flex-basis: 55%;
+            flex-basis: auto;
+            width: 55%;
+            display: inline-block;
+            text-align: center;
+            color: #fff;
+            padding: 20px 30px;
+            font-weight: 600;
+        }
+
+        .tex-negro {
+            color: #000;
+        }
+
+        .texto-seccion h2 {
+            margin-bottom: 20px;
+            line-height: 1.2rem;
+        }
+
+        .texto-seccion p {
+            line-height: 1rem;
+        }
+
+        .video {
+            padding: 30px 0;
+            cursor: pointer;
+        }
+
+        /*----GRADIENTES-----*/
+
+        .cyan {
+            background: #00A9E7;
+        }
+
+        .yellow {
+            background: #FCEB00;
+        }
+
+        .magenta {
+            background: #FF0090;
+        }
+        .negro {
+            background: #000000;
+            background: -moz-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+            background: -webkit-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+            background: linear-gradient(to bottom, #000000 0%, #1e1e1e 50%, #000000 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+        }
+
+        .gris1 {
+            background: #878787;
+            background: -moz-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+            background: -webkit-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+            background: linear-gradient(to right, #878787 0%, #cacaca 50%, #878787 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878787', endColorstr='#878787', GradientType=1);
+        }
+
+        .gris2 {
+            background: #535254;
+            background: -moz-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+            background: -webkit-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+            background: linear-gradient(135deg, #535254 0%, #727878 50%, #535254 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#535254', endColorstr='#535254', GradientType=1);
+        }
+
+        .gris3 {
+            background: #8e8783;
+            background: -moz-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+            background: -webkit-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+            background: linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e8783', endColorstr='#8e8783', GradientType=1);
+        }
+
+        .rojo1 {
+            background: #be1e2d;
+            background: -moz-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+            background: -webkit-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+            background: linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#be1e2d', endColorstr='#be1e2d', GradientType=1);
+        }
+
+        .rojo2 {
+            background: #ad1e21;
+            background: -moz-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+            background: -webkit-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+            background: linear-gradient(135deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad1e21', endColorstr='#ad1e21', GradientType=1);
+        }
+
+
+        .foot {
+            background-color: #333333;
+            border-top: solid 5px #cc0000;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            padding: 30px 80px;
+            width: 100%;
+            margin: -30px auto;
+            font-weight: 300;
+        }
+
+        .full-width {
+            width: 100%;
+            display: block;
+            margin: 20px 0 -20px;
+        }
+
+        .full-width h2:after {
+            content:"";
+            width: 60%;
+            display: block;
+            border-bottom: solid 2px #ff0000;
+            margin:10px auto;
+        }
+
+        .col3 {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .col3_img img {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+     
+
+        @media screen and (max-width: 800px) {
+            label {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+
+            .imagen-seccion {
+                width: 100%;
+                display: inline-block;
+            }
+
+            .texto-seccion {
+                width: 100%;
+                display: inline-block;
+                padding: 30px 30px 40px;
+            }
+
+            .full-width h2:after {
+            width: 90%;
+        }
+
+            .col3 {
+                display: block;
+                justify-content: space-between;
+                width: 80%;
+                margin: 0 auto;
+                text-align: center
+            }
+
+            .col3_img img {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        @media screen and (max-width: 500px) {
+            label {
+                padding: 10px 0;
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            label {
+                font-size: 8px;
+            }
+        }
+    </style>
+    <title>Canon EOS_80D</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div class="main">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1">Características</label>
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2">Especificaciones</label>
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3">Contenido</label>
+        <input id="tab4" type="radio" name="tabs">
+        <label for="tab4">Suministros</label>
+
+        <div class="content">
+            <div id="content1">
+
+                <div class="seccion gris2">
+                    <div class="imagen-seccion">
+                        <picture>
+                            <source media="(max-width: 700px)" srcset="../imp/G2100/car/mob1.png">
+                            <img src="../imp/G2100/car/desk1.png">
+                        </picture>
+                    </div>
+
+                    <div class="texto-seccion">
+                        <h2>Optimizando La Productividad De Impresión</h2>
+                        <p>Maximice la productividad e imprima hasta 6,000 páginas en negro y 7,000 en color con
+                            nuestras nuevas botellas de tinta; 135 ml en Negro y 70 ml en Color.</p>
+                    </div>
+                </div>
+
+                <div class="seccion reverse gris3">
+
+                    <div class="imagen-seccion">
+                        <picture>
+                            <source media="(max-width: 700px)" srcset="../imp/G2100/car/mob2.png">
+                            <img src="../imp/G2100/car/desk2.png">
+                        </picture>
+                    </div>
+
+                    <div class="texto-seccion">
+                        <h2>Pantalla LCD Para Determinar Fácilmente El Número De Copias.</h2>
+                        <p>Imprima y escanee de forma inalámbrica desde cualquier computadora habilitada con Wi-Fi® alrededor de la casa.</p>
+                    </div>
+
+
+                </div>
+
+                <div class="seccion negro">
+                    <div class="texto-seccion full-width">
+                        <h2>Aporta Comodidad y Ahorra Tiempo Tan Fácil Como 1, 2, 3.</h2>
+                    </div>
+                    <div class="col3">
+                        <div class="imagen-seccion col3_img"><img src="../imp/G2100/car/mob3.png"></div>
+                        <div class="imagen-seccion col3_img"><img src="../imp/G2100/car/mob4.png"></div>
+                        <div class="imagen-seccion col3_img"><img src="../imp/G2100/car/mob5.png"></div>
+                    </div>
+                </div>
+
+                <div class="seccion reverse cyan">
+                    <div class="imagen-seccion">
+                        <picture>
+                            <source media="(max-width: 700px)" srcset="../imp/G2100/car/mob6.png">
+                            <img src="../imp/G2100/car/desk6.png">
+                        </picture>
+                    </div>
+
+                    <div class="texto-seccion">
+                        <h2>Diseño Inteligente de Sistema de Tinta Integrado</h2>
+                        <p> El diseño inteligente de la botella de tinta facilita su uso, destape y abra.</p>
+                    </div>
+                </div>
+
+                <div class="seccion magenta">
+                    <div class="imagen-seccion">
+                        <picture>
+                            <source media="(max-width: 700px)" srcset="../imp/G2100/car/mob7.png">
+                            <img src="../imp/G2100/car/desk7.png">
+                        </picture>
+                    </div>
+
+                    <div class="texto-seccion">
+                        <h2>Tubo Hermético Duradero de Alta Calidad</h2>
+                        <p>El diseño facilita el acceso frontal, la instalación de tintas y la visibilidad de los niveles de tinta de cada color.</p>
+                    </div>
+                </div>
+
+                <div class="seccion reverse yellow">
+                    <div class="imagen-seccion">
+                        <picture>
+                            <source media="(max-width: 700px)" srcset="../imp/G2100/car/mob8.png">
+                            <img src="../imp/G2100/car/desk8.png">
+                        </picture>
+                    </div>
+
+                    <div class="texto-seccion tex-negro">
+                        <h2>Utiliza Hasta la Última Gota</h2>
+                        <p>Fácil de manejar sin posibles derrames accidentales y manchas.</p>
+                    </div>
+                </div>
+
+                <div class="video">
+
+                    <video width="100%" height="auto" controls>
+                        <source src="https://canon.ssl.cdn.sdlmedia.com/private/hd1080p/635926201571830481WO.mp4" type="video/mp4">
+                        <source src="https://canon.ssl.cdn.sdlmedia.com/private/hd1080p/635926201571830481WO.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+
+                </div>
+
+            </div>
+
+            <div id="content2">
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E5.jpg">
+                    <p class="text_spec">Dispara desde ángulos altos y bajos.</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E8.jpg">
+                    <p class="text_spec">Conéctate y comparte fácilmente.</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E1.jpg">
+                    <p class="text_spec">Consigue unas fotografías de gran calidad repletas de detalles</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E3.jpg">
+                    <p class="text_spec">Capta toda la acción con una velocidad máxima de disparo de 7 fps</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E4.JPG">
+                    <p class="text_spec">Enfoca y sigue a tus motivos en cualquier parte del encuadre</p>
+                </div>
+
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E6.jpg">
+                    <p class="text_spec">Graba vídeos con una resolución de hasta 1080p y una velocidad de 60 fps.</p>
+                </div>
+
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E7.JPG">
+                    <p class="text_spec">Disfruta de un enfoque continuo fluido al grabar vídeos y hacer fotografías en
+                        el modo
+                        Visión en Directo “Live View”.</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E2.jpg">
+                    <p class="text_spec">Potente procesador DIGIC para disfrutar de un rendimiento con gran capacidad
+                        de respuesta y
+                        colores precisos.</p>
+                </div>
+
+                <div class="seccion col3">
+                    <img class="img_spec" src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Especificaciones/EOS 80D E9.jpg">
+                    <p class="text_spec">Comprueba la información de enfoque y disparo superpuesta al motivo mientras
+                        disparas</p>
+                </div>
+
+            </div>
+
+            <div id="content3">
+
+                <div class="seccion contenido">
+                    <img src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Contenido/EOS 80D Contenidos caja.jpg">
+
+                    <h1>Contenido de la caja</h1>
+                    <ul>
+                        <li>Cuerpo de la cámara EOS_80D</li>
+                        <li>Paquete de Baterías LP-E6N</li>
+                        <li>Cargador de Baterías LC-E6</li>
+                        <li>Copa Ocular Eb (no se muestra)</li>
+                        <li>Correa ancha</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div id="content4">
+
+                <div class="galeria">
+                    <img src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Galeria/EOS 80D Galeria 1.jpg">
+                    <img src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Galeria/EOS 80D Galeria 2.jpg">
+                    <img src="http://digitaldepot.com.co/plantillas/Camaras_Eos/EOS_80D/Galeria/EOS 80D Galeria 3.jpg">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        Productos importados y distribuidos por <span style="font-weight: 700;">FUTURIBLE DIGITAL</span>, representante
+        de la
+        marca Canon® en Colombia,<br> garantía de 12 meses con los centros de servicio técnico de la marca.
+    </div>
+</body>
+
+</html>
