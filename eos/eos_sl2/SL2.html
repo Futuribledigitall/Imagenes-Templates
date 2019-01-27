@@ -1,0 +1,613 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			margin-top: 0px;
+			width: 100%;
+			max-width: 1100px;
+			font: 14px 'Open Sans', sans-serif;
+		}
+
+
+		/*----ESTILOS TABS-----*/
+
+		*,
+		*:before,
+		*:after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+
+		.main {
+			margin: 20px auto;
+			min-width: 320px;
+			max-width: 1100px;
+		}
+
+		.content {
+			background: #f9f9f9;
+			color: #373737;
+		}
+
+		.content>div {
+			display: none;
+			padding: 20px;
+		}
+
+		input {
+			display: none;
+		}
+
+		label {
+			display: inline-block;
+			padding: 15px 25px;
+			font-weight: 600;
+			text-align: center;
+			width: 24%;
+			font-size: 16px;
+			background-color: #ededed;
+			border-radius: 0 10px;
+		}
+
+		label:hover {
+			color: #cc0000;
+			cursor: pointer;
+		}
+
+		input:checked+label {
+			background: #f9f9f9;
+			color: #cc0000;
+		}
+
+
+		#tab1:checked~.content #content1,
+		#tab2:checked~.content #content2,
+		#tab3:checked~.content #content3,
+		#tab4:checked~.content #content4 {
+			display: block;
+		}
+
+		/*----ESTILOS GENERALES-----*/
+
+
+
+		.seccion {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: box;
+			display: flex;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-webkit-flex-basis: 50%;
+			flex-basis: 50%;
+			-ms-flex: 50%;
+			align-items: center;
+			margin: -3px;
+			overflow: hidden;
+
+		}
+
+		.contenido {
+			display: block;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+
+		.galeria {
+			margin: 0 auto;
+		}
+
+		.galeria img {
+			width: 100%;
+			padding: 20px 0;
+		}
+
+
+		.contenido img {
+			width: 100%;
+		}
+
+		.contenido img {
+			padding: 10px 0;
+		}
+
+		.contenido ul {
+			list-style-position: inside;
+			padding: 10px;
+		}
+
+		.col3 {
+			-webkit-flex-basis: 33.333%;
+			flex-basis: auto;
+			width: 33%;
+			display: inline-block;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.img_spec {
+			width: 100%;
+			max-width: 82px;
+		}
+
+
+		.text_spec {
+			padding: 20px 10px;
+			text-align: center;
+		}
+
+		.reverse {
+			flex-direction: row-reverse;
+		}
+
+		.imagen-seccion img {
+			width: 100%;
+			overflow: hidden;
+			-webkit-transition: width 0.5s;
+			transition: width 0.5s;
+		}
+
+		.imagen-seccion img:hover {
+			width: 105%;
+		}
+
+		.imagen-seccion {
+			-webkit-flex-basis: 45%;
+			flex-basis: auto;
+			width: 45%;
+			display: inline-block;
+			margin: -6px 0;
+			overflow: hidden;
+		}
+
+		.texto-seccion {
+			-webkit-flex-basis: 55%;
+			flex-basis: auto;
+			width: 55%;
+			display: inline-block;
+			text-align: center;
+			color: #fff;
+			padding: 20px 30px;
+			font-weight: 600;
+		}
+
+		.tex-negro {
+			color: #000;
+		}
+
+		.texto-seccion h2 {
+			margin-bottom: 20px;
+			line-height: 1.2rem;
+		}
+
+		.texto-seccion p {
+			line-height: 1rem;
+		}
+
+		.video {
+			padding: 30px 0;
+			cursor: pointer;
+		}
+
+		/*----GRADIENTES-----*/
+
+
+		.negro {
+			background: #000000;
+			background: -moz-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: -webkit-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: linear-gradient(to bottom, #000000 0%, #1e1e1e 50%, #000000 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+		}
+
+		.gris1 {
+			background: #878787;
+			background: -moz-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: -webkit-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: linear-gradient(to right, #878787 0%, #cacaca 50%, #878787 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878787', endColorstr='#878787', GradientType=1);
+		}
+
+		.gris2 {
+			background: #535254;
+			background: -moz-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: -webkit-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: linear-gradient(135deg, #535254 0%, #727878 50%, #535254 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#535254', endColorstr='#535254', GradientType=1);
+		}
+
+		.gris3 {
+			background: #8e8783;
+			background: -moz-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: -webkit-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e8783', endColorstr='#8e8783', GradientType=1);
+		}
+
+		.rojo1 {
+			background: #be1e2d;
+			background: -moz-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: -webkit-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#be1e2d', endColorstr='#be1e2d', GradientType=1);
+		}
+
+		.rojo2 {
+			background: #ad1e21;
+			background: -moz-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: -webkit-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: linear-gradient(135deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad1e21', endColorstr='#ad1e21', GradientType=1);
+		}
+
+
+		.foot {
+			background-color: #333333;
+			border-top: solid 5px #cc0000;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			padding: 30px 80px;
+			width: 100%;
+			margin: -30px auto;
+			font-weight: 300;
+		}
+
+		@media screen and (max-width: 800px) {
+			label {
+				padding: 15px 10px;
+				font-size: 14px;
+			}
+		}
+
+		@media screen and (max-width: 700px) {
+
+			.imagen-seccion {
+				width: 100%;
+				display: inline-block;
+			}
+
+			.texto-seccion {
+				width: 100%;
+				display: inline-block;
+				padding: 30px 30px 40px;
+			}
+
+			.col3 {
+				-webkit-flex-basis: 100%;
+				flex-basis: auto;
+				width: 100%;
+				display: block;
+				padding: 20px;
+				text-align: center;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			label {
+				padding: 10px 0;
+				font-size: 12px;
+			}
+
+			footer {
+				padding: 30px 20px;
+			}
+		}
+
+		@media screen and (max-width: 400px) {
+			label {
+				font-size: 8px;
+			}
+		}
+	</style>
+	<title>EOS REBEL SL2</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+	<div class="main">
+		<input id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1">Características</label>
+		<input id="tab2" type="radio" name="tabs">
+		<label for="tab2">Especificaciones</label>
+		<input id="tab3" type="radio" name="tabs">
+		<label for="tab3">Contenido</label>
+		<input id="tab4" type="radio" name="tabs">
+		<label for="tab4">Galeria</label>
+
+		<div class="content">
+			<div id="content1">
+
+				<div class="seccion negro">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob1.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk1.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Sensor CMOS (APS-C) de 24.2 megapíxeles</h2>
+						<p>La cámara EOS Rebel SL2 de Canon tiene un poderoso sensor CMOS (APS-C) de 24.2 megapíxeles que puede capturar
+							imágenes de alta resolución y de gran calidad en una amplia variedad de situaciones de iluminación. Tome fotos y
+							videos con detalles finos y vivos colores dinámicos, desde los rojos más profundos hasta los verdes esmeralda,
+							azules y purpuras más exuberantes. Simplemente encienda la cámara y tenga la certeza de que obtendrá resultados
+							sorprendentes, ya sea que los comparta con sus amigos en las redes sociales o que realice ampliaciones en tamaño
+							Cartel.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris1">
+
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob2.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk2.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion tex-negro">
+						<h2>Alta definición real (Full HD) y entrada de micrófono externo</h2>
+						<p>La cámara EOS Rebel SL2 de Canon es compatible con videos en Alta Definición Real (Full HD) de 60p y puede
+							producir increíbles imágenes en movimiento para reproducirlas o para compartir videos en las redes sociales. A
+							los videoblogueros les encantará la facilidad con la que pueden grabar audios de calidad, los cuales estarán
+							listos para su carga inmediata. Para lograr una grabación aún más sofisticada, la EOS Rebel SL2 cuenta con una
+							entrada de micrófono externo para complementar su micrófono interno.</p>
+					</div>
+
+
+				</div>
+
+				<div class="seccion rojo1">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob3.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk3.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Asistente de Características</h2>
+						<p>Gracias a la función Asistente de Características, la cámara EOS Rebel SL2 permite que los usuarios aprovechen
+							las características avanzadas y que capturen fotos impresionantes con facilidad. Al explicar e ilustrar los
+							modos de grabación de la cámara y sus efectos con muestras de fotografías de cada modo, el Asistente de
+							Características permite realizar pruebas y ofrece una guía para crear fotografías sorprendentes.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris2">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob4.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk4.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion ">
+						<h2>Pantalla táctil LCD de ángulo variable de 3.0 pulgadas
+						</h2>
+						<p>Prepare la toma que desee realizar en el modo de Control en Vivo (Live View), donde prácticamente no tiene que
+							esperar el enfoque de la cámara EOS Rebel SL2 gracias al AF del CMOS de Píxeles Duales, que ofrece la velocidad
+							de enfoque automático más rápida del mundo, de 0.03 s.^ Equipado con detección de fase, puede determinar de
+							manera rápida y precisa cuán lejos está un objeto y dónde debe enfocarse el lente; además, ofrece un enfoque
+							automático rápido, nítido y preciso que se mantiene en su sujeto incluso si está en movimiento, tanto para
+							fotografías como para videos. El AF del CMOS de Píxeles Duales ayuda a garantizar que sus resultados sean
+							nítidos, acorta el tiempo que toma realizar el enfoque a su sujeto y mantiene el enfoque en el lugar que lo
+							desea.</p>
+					</div>
+				</div>
+
+				<div class="seccion gris3">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob5.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk5.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Tecnologías Wi-Fi®, NFC** y Bluetooth® integradas Capacidad Wi-Fi® integrada</h2>
+						<p>La cámara EOS Rebel SL2 está diseñada para que la conexión Wi-Fi®* sea rápida y fácil. Puede intercambiar
+							datos con otras cámaras Canon compatibles con Wi-Fi® y transferir archivos directamente a un dispositivo
+							inteligente compatible utilizando la aplicación Camera Connect. Solo presione el botón de Wi-Fi® y la cámara se
+							conectará a la red Wi-Fi® para que comparta y cargue directamente en los distintos servicios web como CANON
+							iMAGE GATEWAY#, Facebook® y YouTube® , además podrá imprimir directamente en impresoras inalámbricas Canon
+							compatibles.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse rojo2">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob6.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk6.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Procesador de imagen DIGIC 7, ISO 100–25600</h2>
+						<p>El procesador de imágenes DIGIC 7 es el motor que impulsa a la cámara EOS Rebel SL2 de Canon para producir
+							imágenes de alta calidad y con rápido funcionamiento, incluso en situaciones de poca luz. Al usar las
+							configuraciones ISO altas, el procesamiento de imagen mantiene resultados nítidos y detallados en casi cualquier
+							situación de iluminación. Versátil y poderoso, el procesador de imágenes DIGIC 7 garantiza que sus fotos y
+							videos se vean nítidos y reales con un mínimo de ruido o granulosidad.</p>
+					</div>
+				</div>
+
+				<div class="seccion gris1">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob7.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk7.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion tex-negro">
+						<h2>AF del CMOS de Píxeles Duales rápido y preciso con detección de fases</h2>
+						<p>Prepare la toma que desee realizar en el modo de Control en Vivo (Live View), donde prácticamente no tiene que
+							esperar el enfoque de la cámara EOS Rebel SL2 gracias al AF del CMOS de Píxeles Duales, que ofrece la velocidad
+							de enfoque automático más rápida del mundo, de 0.03 s.^ Equipado con detección de fase, puede determinar de
+							manera rápida y precisa cuán lejos está un objeto y dónde debe enfocarse el lente; además, ofrece un enfoque
+							automático rápido, nítido y preciso que se mantiene en su sujeto incluso si está en movimiento, tanto para
+							fotografías como para videos. El AF del CMOS de Píxeles Duales ayuda a garantizar que sus resultados sean
+							nítidos, acorta el tiempo que toma realizar el enfoque a su sujeto y mantiene el enfoque en el lugar que lo
+							desea.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris3">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob8.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk8.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Visor óptico con sistema de autoenfoque (AF) de 9 puntos</h2>
+						<p>Especialmente útil cuando se realizan tomas en situaciones de luz brillante, la cámara EOS Rebel SL2cuenta con
+							un visor óptico completo y un sistema de enfoque automático (AF) de área amplia con 9 puntos, diseñado para
+							lograr un enfoque preciso en un instante. El sofisticado sistema de enfoque automático (AF) permite capturar la
+							acción sin importar dónde se mueve el sujeto. La medición evaluativa en 63 zonas permite que la cámara EOS Rebel
+							SL2 logre una exposición óptima en una variedad de sujetos y condiciones de luz.</p>
+					</div>
+				</div>
+
+				<div class="seccion negro">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/mob9.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/desk9.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Cuerpo pequeño y liviano</h2>
+						<p>La cámara EOS DSLR más pequeña y más liviana que cuenta con un sensor APS-C y una pantalla LCD de ángulo
+							variable; por ello, la EOS Rebel Sl2 es fácil de llevar dondequiera que vaya. Con mejoras en su diseño y
+							construcción, la cámara EOS Rebel SL2 ofrece un diseño portátil y ligero sin afectar su rendimiento. Su tamaño
+							compacto brinda una excelente funcionalidad junto con una empuñadura redondeada que se ajusta cómodamente a su
+							mano. Por su conveniente tamaño para uso diario, la cámara EOS Rebel SL2 le permitirá capturar todos los
+							momentos y conservar y compartir sus recuerdos con imágenes de alta calidad.</p>
+					</div>
+				</div>
+
+
+				<div class="video">
+
+					<video width="100%" height="auto" controls>
+
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/sl2video.mp4"
+						 type="video/mp4">
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/car/sl2video.webm"
+						 type="video/webm">
+						Your browser does not support the video tag.
+					</video>
+
+				</div>
+
+			</div>
+
+			<div id="content2">
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk5.jpg">
+					<p class="text_spec">Autoretrato</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk8.jpg">
+					<p class="text_spec">
+							Capacidad de enfoque impresionantemente precisa</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk1.jpg">
+					<p class="text_spec">Compatibilidad con accesorios Eos</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk3.jpg">
+					<p class="text_spec">Selección múltiple de escenas</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk4.jpg">
+					<p class="text_spec">Procesador de imagen DIGIC 7, ISO 100–25600</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk6.jpg">
+					<p class="text_spec">Pantalla LCD mas ancha</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk7.jpg">
+					<p class="text_spec">LCD táctil de ángulo variable</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk2.jpg">
+					<p class="text_spec">Capta fotografías de 8 MP con facilidad</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/especs/desk9.jpg">
+					<p class="text_spec">Excelente calidad de imagen</p>
+				</div>
+
+			</div>
+
+			<div id="content3">
+
+				<div class="seccion contenido">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/cont/desk1.jpg">
+
+					<h1>Contenido de la caja</h1>
+					<ul>
+						<li>EOS Rebel SL2 Cuerpo</li>
+						<li>Ocular EF</li>
+						<li>Correa</li>
+						<li>Batería LP-E17</li>
+						<li>Cargador de Batería LC-E17</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="content4">
+
+				<div class="galeria">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/gal/desk1.jpg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/gal/desk2.jpg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_sl2/gal/desk3.jpg">
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="foot">
+		Productos importados y distribuidos por <span style="font-weight: 700;">FUTURIBLE DIGITAL</span>, representante de la
+		marca Canon® en Colombia,<br> garantía de 12 meses con los centros de servicio técnico de la marca.
+	</div>
+</body>
+
+</html>
