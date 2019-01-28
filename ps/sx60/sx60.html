@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			margin-top: 0px;
+			width: 100%;
+			max-width: 1100px;
+			font: 14px 'Open Sans', sans-serif;
+		}
+
+
+		/*----ESTILOS TABS-----*/
+
+		*,
+		*:before,
+		*:after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+
+		.main {
+			margin: 20px auto;
+			min-width: 320px;
+			max-width: 1100px;
+		}
+
+		.content {
+			background: #f9f9f9;
+			color: #373737;
+		}
+
+		.content>div {
+			display: none;
+			padding: 20px;
+		}
+
+		input {
+			display: none;
+		}
+
+		label {
+			display: inline-block;
+			padding: 15px 25px;
+			font-weight: 600;
+			text-align: center;
+			width: 24%;
+			font-size: 16px;
+			background-color: #ededed;
+			border-radius: 0 10px;
+		}
+
+		label:hover {
+			color: #cc0000;
+			cursor: pointer;
+		}
+
+		input:checked+label {
+			background: #f9f9f9;
+			color: #cc0000;
+		}
+
+
+		#tab1:checked~.content #content1,
+		#tab2:checked~.content #content2,
+		#tab3:checked~.content #content3,
+		#tab4:checked~.content #content4 {
+			display: block;
+		}
+
+		/*----ESTILOS GENERALES-----*/
+
+
+
+		.seccion {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: box;
+			display: flex;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-webkit-flex-basis: 50%;
+			flex-basis: 50%;
+			-ms-flex: 50%;
+			align-items: center;
+			margin: -3px;
+			overflow: hidden;
+
+		}
+
+		.contenido {
+			display: block;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+
+		.galeria {
+			margin: 0 auto;
+		}
+
+		.galeria img {
+			width: 100%;
+			padding: 20px 0;
+		}
+
+
+		.contenido img {
+			width: 100%;
+		}
+
+		.contenido img {
+			padding: 10px 0;
+		}
+
+		.contenido ul {
+			list-style-position: inside;
+			padding: 10px;
+		}
+
+		.col3 {
+			-webkit-flex-basis: 33.333%;
+			flex-basis: auto;
+			width: 33%;
+			display: inline-block;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.img_spec {
+			width: 100%;
+			max-width: 82px;
+		}
+
+
+		.text_spec {
+			padding: 20px 10px;
+			text-align: center;
+		}
+
+		.reverse {
+			flex-direction: row-reverse;
+		}
+
+		.imagen-seccion img {
+			width: 100%;
+			overflow: hidden;
+			-webkit-transition: width 0.5s;
+			transition: width 0.5s;
+		}
+
+		.imagen-seccion img:hover {
+			width: 105%;
+		}
+
+		.imagen-seccion {
+			-webkit-flex-basis: 45%;
+			flex-basis: auto;
+			width: 45%;
+			display: inline-block;
+			margin: -6px 0;
+			overflow: hidden;
+		}
+
+		.texto-seccion {
+			-webkit-flex-basis: 55%;
+			flex-basis: auto;
+			width: 55%;
+			display: inline-block;
+			text-align: center;
+			color: #fff;
+			padding: 20px 30px;
+			font-weight: 600;
+		}
+
+		.tex-negro {
+			color: #000;
+		}
+
+		.texto-seccion h2 {
+			margin-bottom: 20px;
+			line-height: 1.2rem;
+		}
+
+		.texto-seccion p {
+			line-height: 1rem;
+		}
+
+		.video {
+			padding: 30px 0;
+			cursor: pointer;
+		}
+
+		/*----GRADIENTES-----*/
+
+
+		.negro {
+			background: #000000;
+			background: -moz-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: -webkit-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: linear-gradient(to bottom, #000000 0%, #1e1e1e 50%, #000000 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+		}
+
+		.gris1 {
+			background: #878787;
+			background: -moz-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: -webkit-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: linear-gradient(to right, #878787 0%, #cacaca 50%, #878787 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878787', endColorstr='#878787', GradientType=1);
+		}
+
+		.gris2 {
+			background: #535254;
+			background: -moz-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: -webkit-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: linear-gradient(135deg, #535254 0%, #727878 50%, #535254 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#535254', endColorstr='#535254', GradientType=1);
+		}
+
+		.gris3 {
+			background: #8e8783;
+			background: -moz-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: -webkit-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e8783', endColorstr='#8e8783', GradientType=1);
+		}
+
+		.rojo1 {
+			background: #be1e2d;
+			background: -moz-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: -webkit-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#be1e2d', endColorstr='#be1e2d', GradientType=1);
+		}
+
+		.rojo2 {
+			background: #ad1e21;
+			background: -moz-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: -webkit-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: linear-gradient(135deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad1e21', endColorstr='#ad1e21', GradientType=1);
+		}
+
+
+		.foot {
+			background-color: #333333;
+			border-top: solid 5px #cc0000;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			padding: 30px 80px;
+			width: 100%;
+			margin: -30px auto;
+			font-weight: 300;
+		}
+
+		@media screen and (max-width: 800px) {
+			label {
+				padding: 15px 10px;
+				font-size: 14px;
+			}
+		}
+
+		@media screen and (max-width: 700px) {
+
+			.imagen-seccion {
+				width: 100%;
+				display: inline-block;
+			}
+
+			.texto-seccion {
+				width: 100%;
+				display: inline-block;
+				padding: 30px 30px 40px;
+			}
+
+			.col3 {
+				-webkit-flex-basis: 100%;
+				flex-basis: auto;
+				width: 100%;
+				display: block;
+				padding: 20px;
+				text-align: center;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			label {
+				padding: 10px 0;
+				font-size: 12px;
+			}
+
+			footer {
+				padding: 30px 20px;
+			}
+		}
+
+		@media screen and (max-width: 400px) {
+			label {
+				font-size: 8px;
+			}
+		}
+	</style>
+	<title>Canon PowerShot SX60 HS</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+	<div class="main">
+		<input id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1">Características</label>
+		<input id="tab2" type="radio" name="tabs">
+		<label for="tab2">Especificaciones</label>
+		<input id="tab3" type="radio" name="tabs">
+		<label for="tab3">Contenido</label>
+		<input id="tab4" type="radio" name="tabs">
+		<label for="tab4">Galeria</label>
+
+		<div class="content">
+			<div id="content1">
+
+				<div class="seccion negro">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/mob1.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/desk1.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Un Sensor CMOS de Alta Sensibilidad y 16.1 megapíxeles</h2>
+						<p>La cámara PowerShot SX60 HS utiliza un sensor CMOS de 16.1 Megapíxeles. Ya que utiliza un diseño sofisticado de captura de luz, brinda una alta sensibilidad para una mejor captura con un alto valor ISO.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris1">
+
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/mob2.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/desk2.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion tex-negro">
+						<h2>Grabe hermosos videos en Alta Definición Real (Full HD)</h2>
+						<p>Con la cámara PowerShot SX60 HS, usted conservará recuerdos y videos cortos creativos de Alta Definición Real (Full HD) de 1080p a 60 cuadros por segundo.</p>
+					</div>
+
+
+				</div>
+
+				<div class="seccion rojo1">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/mob3.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/desk3.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Lente Gran Angular con Zoom Óptico de 65x</h2>
+						<p>Imagine poder fotografiar animales en su hábitat desde una distancia segura, fotografiar detalles arquitectónicos en lo alto de un rascacielos y ver la expresión en el rostro de un atleta desde las gradas.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris2">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/mob4.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/desk4.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion ">
+						<h2>Además de un Visor Electrónico con 922,000
+						</h2>
+						<p>La PowerShot SX60 HS le ofrece varias opciones para capturar una toma perfecta. La pantalla LCD brillante con Ángulo Variable de 3.0 pulgadas tiene una excelente resolución.</p>
+					</div>
+				</div>
+
+				<div class="seccion gris3">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/mob5.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/desk5.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Cconectividad Wi-Fi® la función NFC (Comunicación de Campo Cercano)</h2>
+						<p>La cámara PowerShot SX60 HS soporta con la tecnología NFC (Comunicación de Campo Cercano), la cual elimina la necesidad de encontrar y abrir la aplicación CameraWindow de Canon* en su dispositivo móvil.</p>
+					</div>
+				</div>
+
+				
+
+
+				<div class="video">
+
+					<video width="100%" height="auto" controls>
+
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/sx60video.mp4"
+						 type="video/mp4">
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/car/sx60video.webm"
+						 type="video/webm">
+						Your browser does not support the video tag.
+					</video>
+
+				</div>
+
+			</div>
+
+			<div id="content2">
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk5.jpg">
+					<p class="text_spec">Video en Alta Definición Real (Full HD)</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk8.jpg">
+					<p class="text_spec">Potente procesamiento DIGIC</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk1.jpg">
+					<p class="text_spec"> Amplia pantalla LCD de 3.0 pulgadas</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk3.jpg">
+					<p class="text_spec">Comparte tus imágenes y realiza copias de seguridad de forma inalámbrica</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk4.jpg">
+					<p class="text_spec">Vídeos 1080p más nítidos</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk6.jpg">
+					<p class="text_spec">Magníficas fotos con poca luz</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk7.jpg">
+					<p class="text_spec">Sensor CMOS de 16,1 megapíxeles</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk2.jpg">
+					<p class="text_spec">Imágenes y vídeos estables en todas las situaciones</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/especs/desk9.jpg">
+					<p class="text_spec">Zoom 65x con ultra gran angular</p>
+				</div>
+
+			</div>
+
+			<div id="content3">
+
+				<div class="seccion contenido">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/cont/desk1.jpg">
+
+					<h1>Contenido de la caja</h1>
+					<ul>
+						<li>Cámara digital PowerShot SX60 HS</li>
+						<li>Tapa del lente (con correa)</li>
+						<li>Paquete de Baterías NB-10L</li>
+						<li>Cargador de Baterías CB-2LC/li>
+						<li>Correa para el Cuello NS-DC11</li>
+						
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="content4">
+
+				<div class="galeria">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/gal/desk1.jpg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/gal/desk2.jpg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/ps/sx60/gal/desk3.jpg">
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="foot">
+		Productos importados y distribuidos por <span style="font-weight: 700;">FUTURIBLE DIGITAL</span>, representante de la
+		marca Canon® en Colombia,<br> garantía de 12 meses con los centros de servicio técnico de la marca.
+	</div>
+</body>
+
+</html>
