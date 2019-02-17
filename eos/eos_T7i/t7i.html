@@ -138,6 +138,11 @@
 			text-align: center;
 		}
 
+		.specs_content {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
 		.img_spec {
 			width: 100%;
 			max-width: 82px;
@@ -180,6 +185,34 @@
 			display: inline-block;
 			text-align: center;
 			color: #fff;
+			padding: 20px 30px;
+			font-weight: 600;
+		}
+
+		.imagen-caja img {
+			width: 100%;
+			overflow: hidden;
+			-webkit-transition: width 0.5s;
+			transition: width 0.5s;
+			padding: 10%
+			}
+
+		.imagen-caja {
+			-webkit-flex-basis: 45%;
+			flex-basis: auto;
+			width: 60%;
+			display: inline-block;
+			margin: -6px 0;
+			overflow: hidden;
+			}
+
+		.texto-caja {
+			-webkit-flex-basis: 55%;
+			flex-basis: auto;
+			width: 40%;
+			display: inline-block;
+			text-align: left;
+			color: rgb(0, 0, 0);
 			padding: 20px 30px;
 			font-weight: 600;
 		}
@@ -281,6 +314,17 @@
 			}
 
 			.texto-seccion {
+				width: 100%;
+				display: inline-block;
+				padding: 30px 30px 40px;
+			}
+
+			.imagen-caja {
+				width: 100%;
+				display: inline-block;
+			}
+
+			.texto-caja {
 				width: 100%;
 				display: inline-block;
 				padding: 30px 30px 40px;
@@ -479,7 +523,7 @@
 			</div>
 
 			<div id="content2">
-
+					<div class="specs_content">
 				<div class="seccion col3">
 					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_T7i/especs/desk5.jpg">
 					<p class="text_spec">Excelente calidad de imagen</p>
@@ -528,13 +572,20 @@
 					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_T7i/especs/desk9.jpg">
 					<p class="text_spec">El sistema de AF de 45 puntos de tipo cruz</p>
 				</div>
+				</div>
 
 			</div>
 
 			<div id="content3">
 
-				<div class="seccion contenido">
+					<div class="seccion">
+							<div class="imagen-caja">
+						<picture>
 					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_T7i/cont/desk1.jpg">
+				</picture>
+			</div>
+
+			<div class="texto-caja">
 
 					<h1>Contenido de la caja</h1>
 					<ul>
@@ -548,6 +599,8 @@
 					</ul>
 
 				</div>
+			</div>
+
 
 			</div>
 

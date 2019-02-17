@@ -129,6 +129,10 @@
             padding: 10px;
         }
 
+		.specs_content {
+			display: flex;
+			flex-wrap: wrap;
+		}
         .img_spec {
             width: 100%;
             max-width: 82px;
@@ -236,6 +240,14 @@
             background: -webkit-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
             background: linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e8783', endColorstr='#8e8783', GradientType=1);
+        }
+
+        .gris4 {
+            background: #383838;
+            background: -moz-linear-gradient(45deg, #383838 0%, #b5aca5 50%, #383838 100%);
+            background: -webkit-linear-gradient(45deg, #383838 0%, #b5aca5 50%, #383838 100%);
+            background: linear-gradient(45deg, #383838 0%, #b5aca5 50%, #303030 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#383838', GradientType=1);
         }
 
         .rojo1 {
@@ -407,6 +419,20 @@
         <div class="content">
             <div id="content1">
 
+                    <div class="seccion reverse gris4">
+
+                            <div class="imagen-seccion">
+                                <picture>
+                                    <source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/imp/E401/car/mob0.png">
+                                    <img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/imp/E401/car/desk0.png">
+                                </picture>
+                            </div>
+        
+                            <div class="texto-seccion">
+                                <h2>Impresora Multifuncional</h2>
+                                <p>Imprima, escanee y copie sus documentos y fotografías.</p>
+                            </div>
+                    </div>
                 <div class="seccion gris2">
                     <div class="imagen-seccion">
                         <picture>
@@ -499,7 +525,7 @@
             </div>
 
             <div id="content2">
-
+                    <div class="specs_content">
                 <div class="seccion col4">
                     <img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/imp/E401/especs/desk1.jpg">
                     <p class="text_spec">Máxima resolución en color, de 4800 x 1200 dpi</p>
@@ -546,6 +572,7 @@
                     <img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/imp/E401/especs/desk9.jpg">
                     <p class="text_spec">Transferencia de los datos sea super rápida.</p>
                 </div>
+            </div>
 
             </div>
 
