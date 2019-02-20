@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			margin-top: 0px;
+			width: 100%;
+			max-width: 1100px;
+			font: 14px 'Open Sans', sans-serif;
+		}
+
+
+		/*----ESTILOS TABS-----*/
+
+		*,
+		*:before,
+		*:after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+
+		.main {
+			margin: 20px auto;
+			min-width: 320px;
+			max-width: 1100px;
+		}
+
+		.content {
+			background: #f9f9f9;
+			color: #373737;
+		}
+
+		.content>div {
+			display: none;
+			padding: 20px;
+		}
+
+		input {
+			display: none;
+		}
+
+		label {
+			display: inline-block;
+			padding: 15px 25px;
+			font-weight: 600;
+			text-align: center;
+			width: 24%;
+			font-size: 16px;
+			background-color: #ededed;
+			border-radius: 0 10px;
+		}
+
+		label:hover {
+			color: #cc0000;
+			cursor: pointer;
+		}
+
+		input:checked+label {
+			background: #f9f9f9;
+			color: #cc0000;
+		}
+
+
+		#tab1:checked~.content #content1,
+		#tab2:checked~.content #content2,
+		#tab3:checked~.content #content3,
+		#tab4:checked~.content #content4 {
+			display: block;
+		}
+
+		/*----ESTILOS GENERALES-----*/
+
+
+
+		.seccion {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: box;
+			display: flex;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-webkit-flex-basis: 50%;
+			flex-basis: 50%;
+			-ms-flex: 50%;
+			align-items: center;
+			margin: -3px;
+			overflow: hidden;
+
+		}
+
+		.contenido {
+			display: block;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+
+		.galeria {
+			margin: 0 auto;
+		}
+
+		.galeria img {
+			width: 100%;
+			padding: 20px 0;
+		}
+
+
+		.contenido img {
+			width: 100%;
+		}
+
+		.contenido img {
+			padding: 10px 0;
+		}
+
+		.contenido ul {
+			list-style-position: inside;
+			padding: 10px;
+		}
+
+		.col3 {
+			-webkit-flex-basis: 33.333%;
+			flex-basis: auto;
+			width: 33%;
+			display: inline-block;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.specs_content {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.img_spec {
+			width: 100%;
+			max-width: 82px;
+		}
+
+
+		.text_spec {
+			padding: 20px 10px;
+			text-align: center;
+		}
+
+		.reverse {
+			flex-direction: row-reverse;
+		}
+
+		.imagen-seccion img {
+			width: 100%;
+			overflow: hidden;
+			-webkit-transition: width 0.5s;
+			transition: width 0.5s;
+		}
+
+		.imagen-seccion img:hover {
+			width: 105%;
+		}
+
+		.imagen-seccion {
+			-webkit-flex-basis: 45%;
+			flex-basis: auto;
+			width: 45%;
+			display: inline-block;
+			margin: -6px 0;
+			overflow: hidden;
+		}
+
+		.texto-seccion {
+			-webkit-flex-basis: 55%;
+			flex-basis: auto;
+			width: 55%;
+			display: inline-block;
+			text-align: center;
+			color: #fff;
+			padding: 20px 30px;
+			font-weight: 600;
+		}
+
+		.imagen-caja img {
+			width: 100%;
+			overflow: hidden;
+			-webkit-transition: width 0.5s;
+			transition: width 0.5s;
+			padding: 10%
+			}
+
+		.imagen-caja {
+			-webkit-flex-basis: 45%;
+			flex-basis: auto;
+			width: 60%;
+			display: inline-block;
+			margin: -6px 0;
+			overflow: hidden;
+			}
+
+		.texto-caja {
+			-webkit-flex-basis: 55%;
+			flex-basis: auto;
+			width: 40%;
+			display: inline-block;
+			text-align: left;
+			color: rgb(0, 0, 0);
+			padding: 20px 30px;
+			font-weight: 600;
+		}
+
+		.tex-negro {
+			color: #000;
+		}
+
+		.texto-seccion h2 {
+			margin-bottom: 20px;
+			line-height: 1.2rem;
+		}
+
+		.texto-seccion p {
+			line-height: 1rem;
+		}
+
+		.video {
+			padding: 30px 0;
+			cursor: pointer;
+		}
+
+		/*----GRADIENTES-----*/
+
+
+		.negro {
+			background: #000000;
+			background: -moz-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: -webkit-linear-gradient(top, #000000 0%, #1e1e1e 50%, #000000 100%);
+			background: linear-gradient(to bottom, #000000 0%, #1e1e1e 50%, #000000 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+		}
+
+		.gris1 {
+			background: #878787;
+			background: -moz-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: -webkit-linear-gradient(left, #878787 0%, #cacaca 50%, #878787 100%);
+			background: linear-gradient(to right, #878787 0%, #cacaca 50%, #878787 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878787', endColorstr='#878787', GradientType=1);
+		}
+
+		.gris2 {
+			background: #535254;
+			background: -moz-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: -webkit-linear-gradient(-45deg, #535254 0%, #727878 50%, #535254 100%);
+			background: linear-gradient(135deg, #535254 0%, #727878 50%, #535254 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#535254', endColorstr='#535254', GradientType=1);
+		}
+
+		.gris3 {
+			background: #8e8783;
+			background: -moz-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: -webkit-linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			background: linear-gradient(45deg, #8e8783 0%, #b5aca5 50%, #8e8783 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e8783', endColorstr='#8e8783', GradientType=1);
+		}
+
+		.rojo1 {
+			background: #be1e2d;
+			background: -moz-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: -webkit-linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			background: linear-gradient(45deg, #be1e2d 0%, #ed1c24 50%, #be1e2d 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#be1e2d', endColorstr='#be1e2d', GradientType=1);
+		}
+
+		.rojo2 {
+			background: #ad1e21;
+			background: -moz-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: -webkit-linear-gradient(-45deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			background: linear-gradient(135deg, #ad1e21 0%, #d00024 50%, #ad1e21 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad1e21', endColorstr='#ad1e21', GradientType=1);
+		}
+
+
+		.foot {
+			background-color: #333333;
+			border-top: solid 5px #cc0000;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			padding: 30px 80px;
+			width: 100%;
+			margin: -30px auto;
+			font-weight: 300;
+		}
+
+		@media screen and (max-width: 800px) {
+			label {
+				padding: 15px 10px;
+				font-size: 14px;
+			}
+		}
+
+		@media screen and (max-width: 700px) {
+
+			.imagen-seccion {
+				width: 100%;
+				display: inline-block;
+			}
+
+			.texto-seccion {
+				width: 100%;
+				display: inline-block;
+				padding: 30px 30px 40px;
+			}
+
+			.imagen-caja {
+				width: 100%;
+				display: inline-block;
+			}
+
+			.texto-caja {
+				width: 100%;
+				display: inline-block;
+				padding: 30px 30px 40px;
+			}
+
+			.col3 {
+				-webkit-flex-basis: 100%;
+				flex-basis: auto;
+				width: 100%;
+				display: block;
+				padding: 20px;
+				text-align: center;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			label {
+				padding: 10px 0;
+				font-size: 12px;
+			}
+
+			footer {
+				padding: 30px 20px;
+			}
+		}
+
+		@media screen and (max-width: 400px) {
+			label {
+				font-size: 8px;
+			}
+		}
+	</style>
+	<title>EOS 6D MARK II</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+	<div class="main">
+		<input id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1">Características</label>
+		<input id="tab2" type="radio" name="tabs">
+		<label for="tab2">Especificaciones</label>
+		<input id="tab3" type="radio" name="tabs">
+		<label for="tab3">Contenido</label>
+		<input id="tab4" type="radio" name="tabs">
+		<label for="tab4">Galería</label>
+
+		<div class="content">
+			<div id="content1">
+
+				<div class="seccion negro">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob1.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk1.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>La ventaja del formato completo (full frame)</h2>
+						<p>Con su sensor CMOS de fotograma completo de 26,2 megapíxeles y un procesador de imágenes DIGIC 7, la EOS 6D Mark II se ha desarrollado desde la base para ofrecer resultados profesionales.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris1">
+
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob2.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk2.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion tex-negro">
+						<h2>Vídeos Full HD cinematográficos</h2>
+						<p>Graba vídeos Full HD de extraordinaria calidad con la profundidad del vídeo profesional. El enfoque automático Dual Pixel CMOS AF se ajusta para mantener la nitidez de objetos en movimiento.</p>
+					</div>
+
+
+				</div>
+
+				<div class="seccion rojo1">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob3.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk3.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Diseñada para funcionar con tus dispositivos inteligentes</h2>
+						<p>La EOS 6D Mark II utiliza Bluetooth® para establecer una conexión Wi-Fi con tu dispositivo inteligente** de configuración sencilla. Busca y selecciona imágenes en la pantalla de tu dispositivo y compártelas con tus amigos.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris2">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob4.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk4.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion ">
+						<h2>Haz tu composición desde cualquier ángulo
+						</h2>
+						<p>Gracias a la pantalla de ángulo variable de la EOS 6D Mark II, que gira en cualquier dirección, podrás disparar fácilmente desde ángulos bajos o por encima de las cabezas de la gente.</p>
+					</div>
+				</div>
+
+				<div class="seccion gris3">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob5.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk5.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>GPS incorporado que rastrea todos tus movimientos</h2>
+						<p>Geoetiqueta cada imagen que capturas con su ubicación actual, desde cualquier lugar del mundo. Esto es especialmente útil cuando quieras desandar tus pasos al buscar localizaciones.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse rojo2">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob6.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk6.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Procesador de imagen DIGIC 7</h2>
+						<p>El procesador de imágenes DIGIC 7 es el motor que impulsa a la cámara EOS 6D Mark II de Canon para producir imágenes de alta calidad y con rápido funcionamiento, incluso en situaciones de poca luz.</p>
+					</div>
+				</div>
+
+				<div class="seccion gris1">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob7.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk7.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion tex-negro">
+						<h2>Enfoque de precisión para una nitidez absoluta</h2>
+						<p>Enfoque automático avanzado de 45 puntos de tipo cruz para enfocar con precisión, como bajo la luz de la luna. Dispara con confianza cuando trabajes con una profundidad de campo reducida.</p>
+					</div>
+				</div>
+
+				<div class="seccion reverse gris3">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob8.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk8.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Toma continua de alta velocidad de hasta 6.5 fps</h2>
+						<p>La cámara EOS 6D Mark II se diseñó para mantenerse a la par de la acción. Su obturador sobresaliente y el AF avanzado garantizan una respuesta prácticamente instantánea.</p>
+					</div>
+				</div>
+
+				<div class="seccion negro">
+					<div class="imagen-seccion">
+						<picture>
+							<source media="(max-width: 700px)" srcset="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/mob9.png">
+							<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/desk9.png">
+						</picture>
+					</div>
+
+					<div class="texto-seccion">
+						<h2>Poco ruido en entornos oscuros</h2>
+						<p>Las imágenes tomadas en entornos oscuros cuentan con un nivel de ruido reducido y gran claridad, con una sensibilidad máxima de ISO 40000 (ampliable a ISO 102400).</p>
+					</div>
+				</div>
+
+
+				<div class="video">
+
+					<video width="100%" height="auto" controls>
+
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/video.mp4"
+						 type="video/mp4">
+						<source src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/car/video.webm"
+						 type="video/webm">
+						Your browser does not support the video tag.
+					</video>
+
+				</div>
+
+			</div>
+
+			<div id="content2">
+					<div class="specs_content">
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk5.jpg">
+					<p class="text_spec">Excelente calidad de imagen</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk8.jpg">
+					<p class="text_spec">
+							Pantalla táctil LCD</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk1.jpg">
+					<p class="text_spec">
+							Grabación de video Full HD</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk3.jpg">
+					<p class="text_spec">Experimenta con la creatividad</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk4.jpg">
+					<p class="text_spec">Procesador de imagen DIGIC 7, ISO 100–25600</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk6.jpg">
+					<p class="text_spec">Modo de Control en Vivo</p>
+				</div>
+
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk7.jpg">
+					<p class="text_spec">AF del CMOS de Píxeles Duales</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk2.jpg">
+					<p class="text_spec">Disparo continuo de 6 fotogramas</p>
+				</div>
+
+				<div class="seccion col3">
+					<img class="img_spec" src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/especs/desk9.jpg">
+					<p class="text_spec">El sistema de AF de 45 puntos de tipo cruz</p>
+				</div>
+				</div>
+
+			</div>
+
+			<div id="content3">
+
+					<div class="seccion">
+							<div class="imagen-caja">
+						<picture>
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/cont/desk1.jpeg">
+				</picture>
+			</div>
+
+			<div class="texto-caja">
+
+					<h1>Contenido de la caja</h1>
+					<ul>
+						<li>EOS 6D Mark II/li>
+						<li>Ocular Eb</li>
+						<li>Cubierta de cámara: R-F-3</li>
+						<li>Correa para cámara</li>
+						<li>Batería LP-E6N</li>
+						<li>Cargador de batería LC-E6E</li>
+						<li>Kit de manual del usuario</li>
+
+					</ul>
+
+				</div>
+			</div>
+
+
+			</div>
+
+			<div id="content4">
+
+				<div class="galeria">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/gal/desk1.jpeg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/gal/desk2.jpeg">
+					<img src="https://raw.githubusercontent.com/Futuribledigitall/Imagenes-Templates/master/eos/eos_6d/gal/desk3.jpeg">
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="foot">
+		Productos importados y distribuidos por <span style="font-weight: 700;">FUTURIBLE DIGITAL</span>, representante de la
+		marca Canon® en Colombia,<br> garantía de 12 meses con los centros de servicio técnico de la marca.
+	</div>
+</body>
+
+</html>
